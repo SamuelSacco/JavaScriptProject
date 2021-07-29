@@ -10,6 +10,10 @@ export default class Tile {
         this.tileDiv = document.createElement("div");
         this.tileDiv.id = `${pos[0]}-${pos[1]}`;
         this.tileDiv.classList.add('tile');
+        this.tileDiv.ondragstart = function (event) { event.dataTransfer.setData("pos", pos); };
+        this.tileDiv.ondragover = function (event) { event.preventDefault() };
+        this.tileDiv.ondrop = function (event) { event.preventDefault(), board.swap(event.dataTransfer.getData("pos").split(",").map(el => parseInt(el)), pos); };
+
         let grid = document.getElementById("grid");
         grid.appendChild(this.tileDiv);
     }

@@ -60,7 +60,7 @@ export default class Board {
                 }
             }
         }
-        this.addNeighbors2()
+        this.addNeighbors()
         // this.addNeighbors()
 
         // console.log(this.grid[0][0])
@@ -72,6 +72,13 @@ export default class Board {
         return this.grid[row][col]
     }
 
+    setTile(tile, pos){
+        const row = pos[0]
+        const col = pos[1]
+
+        this.grid[row][col] = tile
+    }
+
     validMove(pos) {
         const row = pos[0];
         const col = pos[1];
@@ -80,7 +87,7 @@ export default class Board {
         return validRow && validCol && this.tile([row, col]).type !== "wall";
     }
 
-    addNeighbors2(){
+    addNeighbors(){
         let change_row = 0;
         let change_col = 0;
         let new_row = 0;
@@ -118,6 +125,32 @@ export default class Board {
                 currentTile.tileDiv.classList.remove(...cls);
             }
         }
+    }
+
+    swap(firstPos, secondPos) {
+        // console.log(firstPos)
+        // console.log(secondPos)
+
+        let temp = this.tile(firstPos)
+        let temp2 = this.tile(secondPos)
+        
+        // console.log(tempDivClass, tempDiv2Class)
+        
+        this.setTile(temp, secondPos)
+        // console.log(tempDivClass, tempDiv2Class)
+        
+        this.setTile(temp2, firstPos)
+        if (temp.tileDiv.classList.contains("start")) {
+            temp.tileDiv.classList.remove("start")
+            temp.tileDiv.setAttribute("draggable", false)
+            temp2.tileDiv.classList.add("start")
+            temp2.tileDiv.setAttribute("draggable", true)
+        }
+        // let tempDivClass = temp.tileDiv.classList
+        // let tempDiv2Class  = temp2.tileDiv.classList
+        // console.log(tempDivClass, tempDiv2Class)
+        // temp2.tileDiv.classList = tempDivClass
+        // temp2.tileDiv.classList = tempDiv2Class
     }
 }
 
