@@ -13,6 +13,4 @@ export default class Tile {
         let grid = document.getElementById("grid");
         grid.appendChild(this.tileDiv);
     }
-
-
 }

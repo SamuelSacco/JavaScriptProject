@@ -3,12 +3,12 @@ import animate2 from "../animate";
 
 const _recursiveDFS = (tile) => {
     // console.log(tile.pos)
-    tile.visited = true // set that we've searched here already
     if (tile.type == "end") {
         // debugger
         return [[tile], [tile], true]; // at the end so just return path to self
     }
-
+    tile.visited = true // set that we've searched here already
+    
     let searchPath = [tile]
     let foundSolution;
     let childSearchPath;

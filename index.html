@@ -20,6 +20,33 @@
             <div id="grid">
             </div>
         </div>
+        <div class="controls">
+            <label for="algorithms">Choose an algorithm</label>
+
+            <select name="algorithms" id="algorithms">
+                <option value="DFS">DFS</option>
+                <option value="dijkstras">Dijkstra's</option>
+            </select>
+
+            <button onClick=search()>Search!</button>
+            <script>
+                function search(){
+                    const algo = document.getElementById('algorithms').selectedOptions[0].value;
+                    const tile = board.tile([12, 9])
+
+                    switch (algo) {
+                        case "dijkstras":
+                            dijkstras(tile)
+                            break;
+                        case "DFS":
+                            recursiveDFS(tile)
+                            break;
+                        default:
+                    }
+                }
+            </script>
+            <button onClick=board.clear()>Clear</button>
+        </div>
     </div>
 </body>
 

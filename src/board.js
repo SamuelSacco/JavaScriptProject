@@ -30,7 +30,27 @@ export default class Board {
                     end.type = "end"
                     this.grid[i].push(end);
                     // console.log("SEARCHED", end.searched, "TYPE", end.type, "CHILDREN", end.children)
-                    
+                }
+                else if (
+                    (i === 9 && j === 8) ||
+                    (i === 9 && j === 9) ||
+                    (i === 9 && j === 10) ||
+                    (i === 15 && j === 8) ||
+                    (i === 15 && j === 9) ||
+                    (i === 15 && j === 10) ||
+                    (i === 9 && j === 39) ||
+                    (i === 9 && j === 40) ||
+                    (i === 9 && j === 41) ||
+                    (i === 15 && j === 39) ||
+                    (i === 15 && j === 40) ||
+                    (i === 15 && j === 41)
+                ) {
+                    let wall = new Tile(this, [i, j], "wall");
+                    wall.tileDiv.classList.add("wall")
+                    wall.tileDiv.setAttribute("draggable", "true")
+                    wall.type = "wall"
+                    this.grid[i].push(wall);
+
                 } else {
                     let tile = new Tile(this, [i, j], null);
                     tile.type = "normal"
@@ -52,35 +72,12 @@ export default class Board {
         return this.grid[row][col]
     }
 
-    linkTiles(firstTile, secondTile) {
-        if (firstTile.neighbors.includes(secondTile) || secondTile.neighbors.includes(firstTile)) return
-        firstTile.neighbors.push(secondTile)
-        secondTile.neighbors.push(firstTile)
-    }
-    
-    addNeighbors() {
-        for (let i = 0; i < 27; i++) {
-            for (let j = 0; j < 50; j++) {
-                const currentTile = this.grid[i][j]
-
-                if (i > 0) {
-                    const aboveNode = this.grid[i - 1][j]
-                    this.linkTiles(currentTile, aboveNode)
-                }
-                if (j > 0) {
-                    const leftNode = this.grid[i][j - 1]
-                    this.linkTiles(currentTile, leftNode)
-                }
-            }
-        }
-    }
-
     validMove(pos) {
         const row = pos[0];
         const col = pos[1];
         const validRow = row >= 0 && row < 27;
         const validCol = col >= 0 && col < 50;
-        return validRow && validCol;
+        return validRow && validCol && this.tile([row, col]).type !== "wall";
     }
 
     addNeighbors2(){
@@ -108,6 +105,17 @@ export default class Board {
                     let neighbor_tile = this.tile([new_row, new_col]);
                     this.tile([row, col]).neighbors.push(neighbor_tile);
                 }
+            }
+        }
+    }
+
+    clear() {
+        for (let i = 0; i < 27; i++) {
+            for (let j = 0; j < 50; j++) {
+                const currentTile = this.grid[i][j]
+                const cls = ["visited", "correct"];
+                currentTile.visited = false;
+                currentTile.tileDiv.classList.remove(...cls);
             }
         }
     }

@@ -49,6 +49,11 @@
   background-color: lime;
 }
 
+.wall {
+  cursor: move;
+  background-color: black;
+}
+
 .start {
   cursor: move;
   background-color: #ff0000;
