@@ -100,7 +100,6 @@ export default class Board {
 
         for (let row = 0; row < 27; row++) {
             for (let col = 0; col < 50; col++) {
-
                 for (let idx in dirs) {
                     let change = dirs[idx];
                     change_row = change[0];
