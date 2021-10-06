@@ -1,5 +1,5 @@
 export default class Tile {
-    constructor(board, pos, type) {
+    constructor(board, pos) {
         this.board = board;
         this.pos = pos;
         // this.parent = null;
@@ -10,22 +10,57 @@ export default class Tile {
         this.tileDiv = document.createElement("div");
         this.tileDiv.id = `${pos[0]}-${pos[1]}`;
         this.tileDiv.classList.add('tile');
+
         this.tileDiv.ondragstart = function (event) { 
+            // sets position to be used later 
             event.dataTransfer.setData("pos", pos); 
         };
+
         this.tileDiv.ondragover = function (event) { 
+            // prevents tile from "flying" back
             event.preventDefault() 
+            // this.classList.add("wall")
+            // this.type = "wall"
+
+
         };
+
         this.tileDiv.ondrop = function (event) { 
-            event.preventDefault(), 
-            board
-            .swap(event.dataTransfer.getData("pos")
+            // event.preventDefault(), 
+            board.swap(
+            event.dataTransfer.getData("pos")
             .split(",")
-            .map(el => parseInt(el)), pos); 
+            .map(el => parseInt(el))
+            , pos);
+            
         };
+
+        // this.tileDiv.onmousedown = function (event){
+        //     // this.classList.add("wall")
+        //     // this.setAttribute("draggable", true)
+        //     // this.type = "wall"
+            
+        // }
+
+        this.tileDiv.onclick = function (){
+            console.log(this.classList.contains("wall"), pos, this)
+            this.classList.add("wall")
+            this.setAttribute("draggable", true)
+        }
+
+        // this.tileDiv.oncontextmenu = function (e){
+        //     e.preventDefault()
+        //     this.classList.add("wall")
+        //     this.setAttribute("draggable", true)
+        //     // this.type = "wall"
+        // }
 
         let grid = document.getElementById("grid");
         grid.appendChild(this.tileDiv);
+    }
+
+    _rightclick(){
+        console.log("gesghs")
     }
 
     // _drag(event) {

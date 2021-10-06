@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
     <script src="./dist/main.js"></script>
-    <title>Project Name</title>
+    <title>Maze Builder</title>
     <script src="https://kit.fontawesome.com/694d35ceab.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/jpg" href="src/images/favicon.png" />
 </head>
@@ -34,7 +34,7 @@
             <script>
                 function search(){
                     const algo = document.getElementById('algorithms').selectedOptions[0].value;
-                    const tile = board.tile([12, 9])
+                    const tile = board.tile(document.getElementsByClassName("start")[0].id.split("-").map(el => parseInt(el)));
 
                     switch (algo) {
                         case "dijkstras":
