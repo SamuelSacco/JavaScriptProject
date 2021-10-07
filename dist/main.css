@@ -27,7 +27,7 @@
   display: flex;
 }
 .header .container img {
-  width: 20px;
+  width: 30px;
   object-fit: contain;
   margin-left: 20px;
 }
