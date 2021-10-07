@@ -77,7 +77,7 @@ export default class Tile {
             event.dataTransfer.setData("pos", this.pos);
             this.board.draggedTile = this
             // console.log(this.board)
-            console.log(this.board.draggedTile)
+            // console.log(this.board.draggedTile)
         }
 
         const handleDragEnter = event => {
@@ -150,7 +150,7 @@ export default class Tile {
         //         tile.node.weight = Infinity;
         //     }
         // }
-        this.tileDiv.addEventListener("click", handleClick)
+        this.tileDiv.addEventListener("mousedown", handleClick)
         this.tileDiv.addEventListener("dragstart", handleDragStart)
         this.tileDiv.addEventListener("dragenter", handleDragEnter)
         this.tileDiv.addEventListener("dragover", handleDragOver)
