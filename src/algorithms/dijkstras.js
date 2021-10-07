@@ -16,7 +16,7 @@ const _dijkstras = (tile) => {
 
         for (let idx in tile.neighbors) {
             let neighbor = tile.neighbors[idx]
-            if (neighbor.visited) continue;
+            if (neighbor.visited || neighbor.tileDiv.classList.contains("wall")) continue;
             neighbor.visited = true
             queue.push(path.concat([neighbor]))
         }

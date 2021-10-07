@@ -10,44 +10,94 @@
     <title>Maze Builder</title>
     <script src="https://kit.fontawesome.com/694d35ceab.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/jpg" href="src/images/favicon.png" />
+    <script src="https://kit.fontawesome.com/694d35ceab.js" crossorigin="anonymous"></script>
 </head>
-<div class="test">
-    <!-- <i class="fas fa-location-arrow"></i> -->
-    <!-- <i class="fas fa-map-pin"></i> -->
-</div>
+
 <body id="main-body">
     <div class="main">
+        <div class="header">
+            <div class="container">
+                <img src="src/images/favicon.png" alt="">
+                <h1>Maze Builder</h1>
+            </div>
+            <div class="links">
+                <!-- <img src="src/images/github.png" alt="">
+                <img src="src/images/linkedin.png" alt="">
+                <img src="src/images/angellist.png" alt=""> -->
+                <a href="https://github.com/SamuelSacco" target="_">
+                    <i class="fab fa-github fa-5x"></i>
+                </a>
+                <a href="https://angel.co/u/samuel-sacco" target="_">
+                    <i class="fab fa-angellist fa-5x"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/sam-sacco-642a59218/" target="_">
+                    <i class="fab fa-linkedin-in fa-5x"></i>
+                </a>
+
+            </div>
+        </div>
+        <!-- <div class="angel">
+        </div> -->
+        <br>
         <div class="grid-container">
             <div id="grid">
             </div>
         </div>
         <br>
         <div class="controls">
-            <label for="algorithms">Choose an algorithm</label>
+            <div class="buttons">
+                <div class="drop">
 
-            <select name="algorithms" id="algorithms">
-                <option value="DFS">DFS</option>
-                <option value="dijkstras">Dijkstra's</option>
-            </select>
+                <label for="algorithms">SELECT AN ALGORITHM</label>
+        
+                <select class="dropdown" name="algorithms" id="algorithms">
+                    <option value="DFS">DFS</option>
+                    <option value="dijkstras">BFS</option>
+                </select>
+        
+                <script>
+                    function search(){
+                        const algo = document.getElementById('algorithms').selectedOptions[0].value;
+                        const tile = board.tile(document.getElementsByClassName("start")[0].id.split("-").map(el => parseInt(el)));
+                        
+                        switch (algo) {
+                            case "dijkstras":
+                                dijkstras(tile)
+                                break;
+                                case "DFS":
+                                    recursiveDFS(tile)
+                                    break;
+                                    default:
+                                    }
+                                }
+                </script>
+                </div>
+                <div class="button-wrap">
+                    <button onClick= search()>SEARCH</button>
+                    <button onClick=board.clear()>CLEAR</button>
+                </div>
+            </div>
+            <div class="legend">
+                <div class="tile start">
 
-            <button onClick=search()>Search!</button>
-            <script>
-                function search(){
-                    const algo = document.getElementById('algorithms').selectedOptions[0].value;
-                    const tile = board.tile(document.getElementsByClassName("start")[0].id.split("-").map(el => parseInt(el)));
+                </div>
+                <h1>Start</h1>
+                <div class="tile end">
+                
+                </div>
+                <h1>End</h1>
 
-                    switch (algo) {
-                        case "dijkstras":
-                            dijkstras(tile)
-                            break;
-                        case "DFS":
-                            recursiveDFS(tile)
-                            break;
-                        default:
-                    }
-                }
-            </script>
-            <button onClick=board.clear()>Clear</button>
+                <div class="tile visited">
+                                
+                </div>
+                <h1>Visited</h1>
+
+                <div class="tile correct">
+                
+                </div>
+                <h1>Path</h1>
+
+            </div>
         </div>
     </div>
 </body>

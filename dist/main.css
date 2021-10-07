@@ -12,6 +12,45 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #277da1;
+}
+
+.header {
+  height: 100px;
+  width: 1300px;
+  background-color: #f9c74f;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.header .container {
+  display: flex;
+}
+.header .container img {
+  width: 20px;
+  object-fit: contain;
+  margin-left: 20px;
+}
+.header .links img {
+  object-fit: contain;
+  width: 60px;
+  margin-top: 20px;
+}
+.header .links i {
+  margin-top: 8px;
+  margin-right: 10px;
+  color: #277da1;
+  cursor: pointer;
+}
+.header h1 {
+  font-family: Apple Chancery, cursive;
+  font-size: 50px;
+  margin-left: 10px;
+  margin-top: 9.5px;
+}
+
+.logo {
+  background-image: url("src/images/favicon.png");
 }
 
 #grid {
@@ -19,8 +58,101 @@
   flex-wrap: wrap;
   height: 700px;
   width: 1300px;
-  box-shadow: 0px 0px 10px 5px #909090;
-  background-color: black;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+.controls {
+  height: 150px;
+  width: 1300px;
+  background-color: #f9c74f;
+  border-radius: 10px;
+  display: flex;
+}
+.controls .buttons {
+  display: flex;
+  background-color: #90be6d;
+  height: 80%;
+  border: 2.5px solid black;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-top: 12px;
+  width: 100%;
+}
+.controls .buttons .drop {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: "Nunito Sans", sans-serif;
+}
+.controls .buttons .drop label {
+  margin-left: 102px;
+  letter-spacing: 0.5px;
+  margin-top: 20px;
+  text-decoration: underline;
+  font-weight: bold;
+}
+.controls .buttons .drop .dropdown {
+  margin-left: 100px;
+  margin-top: 10px;
+  width: 200px;
+  height: 50px;
+  background-color: #577590;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  text-align-last: center;
+}
+.controls .buttons .button-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.controls .buttons .button-wrap button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: red;
+  opacity: 80%;
+  color: white;
+}
+.controls .buttons .button-wrap button:hover {
+  opacity: 100%;
+}
+.controls .legend {
+  font-family: "Nunito Sans", sans-serif;
+  background-color: #f9844a;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-top: 12px;
+  margin-right: 10px;
+  height: 80%;
+  border: 2.5px solid black;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.controls .legend .tile {
+  border: 1px solid black;
+  cursor: normal;
+  animation-name: paid;
+  animation-duration: 0.5s;
+}
+.controls .legend h1 {
+  margin-top: 35px;
+  margin-left: -10px;
+  margin-right: 10px;
+}
+.controls .legend div {
+  margin-top: 40px;
+  margin-left: 10px;
+  margin-right: -25px;
 }
 
 .tile {
@@ -29,48 +161,74 @@
   border-bottom: 1px solid #000000;
   border-right: 1px solid #000000;
   border-radius: 2.5px;
-  background-color: white;
+  background-color: #f0f0f0;
 }
 
 @keyframes fade {
   0% {
     background-color: lime;
+    border-radius: 100%;
+    transform: scale(0.75);
+    opacity: 50%;
   }
   100% {
-    background-color: yellow;
+    background-color: #f9c74f;
+    border-radius: 0%;
+    transform: scale(1);
+    opacity: 100%;
+  }
+}
+@keyframes paid {
+  0% {
+    border-radius: 100%;
+    transform: scale(0.75);
+    opacity: 50%;
+  }
+  100% {
+    border-radius: 0%;
+    transform: scale(1);
+    opacity: 100%;
   }
 }
 @keyframes wade {
   0% {
     background-color: blue;
+    border-radius: 100%;
+    transform: scale(0.75);
+    opacity: 50%;
   }
   100% {
-    background-color: lime;
+    background-color: #7fde36;
+    border-radius: 0%;
+    transform: scale(1);
+    opacity: 100%;
   }
 }
 .visited {
   animation-name: fade;
   animation-duration: 0.5s;
-  background-color: yellow;
+  background-color: #f9c74f;
 }
 
 .correct {
   animation-name: wade;
   animation-duration: 0.5s;
-  background-color: lime;
+  background-color: #7fde36;
 }
 
 .wall {
   cursor: move;
   background-color: black;
+  border-bottom: 1px solid white;
+  border-right: 1px solid white;
 }
 
 .start {
   cursor: move;
-  background-color: #ff0000;
+  background-color: #f94144;
 }
 
 .end {
   cursor: move;
-  background-color: #2600ff;
+  background-color: blue;
 }

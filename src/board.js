@@ -5,6 +5,7 @@ export default class Board {
         this.grid = []; // div
         this.start;
         this.target;
+        this.draggedTileType = null;
         this.setTiles();
     }
 
@@ -53,9 +54,9 @@ export default class Board {
 
                 } else {
                     let tile = new Tile(this, [i, j]);
-                    // tile.type = "normal"
+                    tile.type = "normal"
                     this.grid[i].push(tile);
-                    // tile.tileDiv.setAttribute("draggable", "true") 
+                    tile.tileDiv.setAttribute("draggable", "true") 
                     // console.log("SEARCHED", tile.searched, "TYPE", tile.type, "CHILDREN", tile.children, tile.pos)
                 }
             }
@@ -88,7 +89,7 @@ export default class Board {
         const validCol = col >= 0 && col < 50;
         return validRow && validCol 
         // && this.tile([row, col]).type !== "wall";
-        && !this.tile([row, col]).tileDiv.classList.contains("wall")
+        // && !this.tile([row, col]).tileDiv.classList.contains("wall")
         // console.log(this.tile([12, 9]).tileDiv.classList.contains("wall"))
 
     }

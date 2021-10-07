@@ -15,7 +15,9 @@ const _recursiveDFS = (tile) => {
     let correctPath;
     
     for (let neighbor of tile.neighbors) {
-        if (neighbor.visited) continue;
+        // console.log(neighbor.tileDiv.classList.contains("wall"))
+        // console.log(neighbor)
+        if (neighbor.visited || neighbor.tileDiv.classList.contains("wall")) continue;
         [childSearchPath, correctPath, foundSolution] = _recursiveDFS(neighbor) // get path from child
         searchPath = searchPath.concat(childSearchPath)
         if (foundSolution) {
