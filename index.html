@@ -13,7 +13,7 @@
     <script src="https://kit.fontawesome.com/694d35ceab.js" crossorigin="anonymous"></script>
 </head>
 
-<body id="main-body">
+<body class="main-body">
     <div class="main">
         <div class="header">
             <div class="container">
@@ -61,6 +61,10 @@
             
                 </div>
                 <h1>Path</h1>
+                <div class="tile wall">
+                
+                </div>
+                <h1>Wall</h1>
             
             </div>
             <div class="buttons">
@@ -96,7 +100,31 @@
                     <button onClick=board.clear()>CLEAR</button>
                 </div>
             </div>
-
+        </div>
+        <div id="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-logo">
+                    </div>
+                    <div>
+                        <h1 class="demo-title"></h1>
+                    </div>
+                    <button class="exit-button">&times;</button>
+                </div>
+                <h4 class="demo-desc"></h4>
+                <img class="move-demo" src="src/images/move-demo.gif" alt="">
+                <img class="wall-demo" src="src/images/wall-demo.gif" alt="">
+                <img class="drop-demo" src="src/images/drop-demo.gif" alt="">
+                <img class="search-demo" src="src/images/search-demo.gif" alt="">
+                <div class="modal-footer">
+                    <button class="prev-button"><i class="fas fa-arrow-left"></i></button>
+                    <div>
+                        <p class="modal-page-num"></p>
+                    </div>
+                    <button class="next-button"><i class="fas fa-arrow-right"></i></button>
+                </div>
+                <div class="modal-number"></div>
+            </div>
         </div>
     </div>
 </body>
