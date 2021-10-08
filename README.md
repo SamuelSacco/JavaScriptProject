@@ -1,4 +1,6 @@
 # JavaScriptProject
+https://samuelsacco.github.io/MazeBuilder/
+
 My JavaScript project will allow users to select different search algorithms and visualize the patterns those algorithms use to find their end point. 
 Algorithms that I wish to include first are BFS and DFS. If I have time A* and Dijkstra. I would like to use D3 because Im worried about updating the state and rendering the differences in all the different tiles without the use of React. (ex the tiles around should all change color to show the algorithm is searching for the end node)
 
