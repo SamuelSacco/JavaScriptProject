@@ -60,7 +60,7 @@ export default class Tile {
     clickListeners(){
 
         const handleClick = event => {
-
+            console.log(this)
             if (this.type === "normal"){
                 this.tileDiv.classList.add("wall")
                 this.tileDiv.setAttribute("draggable", true)

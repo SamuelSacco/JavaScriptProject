@@ -126,7 +126,7 @@ export default class Board {
         for (let i = 0; i < 27; i++) {
             for (let j = 0; j < 50; j++) {
                 const currentTile = this.grid[i][j]
-                const cls = ["visited", "correct"];
+                const cls = ["visited", "correct", "wall"];
                 currentTile.visited = false;
                 currentTile.tileDiv.classList.remove(...cls);
             }
@@ -166,15 +166,19 @@ export default class Board {
 
         if (this.tile(firstPos).tileDiv.classList.contains("start")){
             this.tile(firstPos).tileDiv.classList.remove("start")
-            this.tile(firstPos).tileDiv.setAttribute("draggable", false)
+            this.tile(firstPos).tileDiv.classList.add("normal")
+            this.tile(firstPos).type = "normal"
+            // this.tile(firstPos).tileDiv.setAttribute("draggable", false)
     
             this.tile(secondPos).tileDiv.classList.add("start")
+            this.tile(secondPos).type = "start"
+            this.tile(secondPos).tileDiv.classList.remove("normal")
             this.tile(secondPos).tileDiv.setAttribute("draggable", true)
         }
 
         if (this.tile(firstPos).tileDiv.classList.contains("end")) {
             this.tile(firstPos).tileDiv.classList.remove("end")
-            this.tile(firstPos).tileDiv.setAttribute("draggable", false)
+            // this.tile(firstPos).tileDiv.setAttribute("draggable", false)
             this.tile(firstPos).type = "normal"
 
             this.tile(secondPos).tileDiv.classList.add("end")
