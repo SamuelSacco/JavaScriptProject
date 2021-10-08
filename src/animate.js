@@ -14,6 +14,7 @@
 // }
 
 function animateCorrectPath(correctPath, idx = 0){
+    
     if (idx === correctPath.length) {
         return;
     }

@@ -7,7 +7,6 @@ import dijkstras from "./algorithms/dijkstras";
 document.addEventListener("DOMContentLoaded", () => {
     let board = new Board();
     
-    // TESTING
     window.board = board;
     window.depthFirstSearch = depthFirstSearch;
     window.recursiveDFS = recursiveDFS;

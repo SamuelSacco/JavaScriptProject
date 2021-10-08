@@ -234,57 +234,43 @@
   background-color: blue;
 }
 
-.show-modal {
-  display: block;
-}
-
-.hide-modal {
-  display: none;
-}
-
-.hide-image {
-  display: none;
-}
-
-.hide-button {
-  visibility: hidden;
-}
-
 #modal {
   display: flex;
   justify-content: center;
   align-items: center;
+  left: 0;
+  top: 0;
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.6);
   height: 100%;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
-#modal .modal-content {
+#modal .modal-main {
   position: fixed;
   background-color: #277da1;
-  box-shadow: 0px 10px 40px 1px #000000;
+  box-shadow: 10px 12px 30px 1px #000000;
   border-radius: 5px;
   width: 650px;
   align-items: center;
 }
-#modal .modal-content .modal-header {
+#modal .modal-main .modal-header {
   display: flex;
   justify-content: space-between;
   background-color: #f9c74f;
   border-bottom: 1px solid black;
   height: 50px;
 }
-#modal .modal-content .modal-header .modal-logo {
+#modal .modal-main .modal-header .modal-logo {
   display: flex;
 }
-#modal .modal-content .modal-header h1 {
+#modal .modal-main .modal-header h1 {
   font-family: "Nunito Sans", sans-serif;
   letter-spacing: 1px;
   margin-top: 4px;
   margin-left: 50px;
 }
-#modal .modal-content .modal-header .exit-button {
+#modal .modal-main .modal-header .exit-button {
   background: none;
   border: none;
   font-size: 45px;
@@ -292,19 +278,19 @@
   cursor: pointer;
   transition: 0.25s ease-in-out;
 }
-#modal .modal-content .modal-header .exit-button:hover {
+#modal .modal-main .modal-header .exit-button:hover {
   color: #fefefe;
 }
-#modal .modal-content .modal-header .exit-button:focus {
+#modal .modal-main .modal-header .exit-button:focus {
   outline: none;
 }
-#modal .modal-content h4 {
+#modal .modal-main h4 {
   color: white;
   text-align: center;
   font-family: Apple Chancery, cursive;
   font-size: 24px;
 }
-#modal .modal-content img {
+#modal .modal-main img {
   object-fit: contain;
   display: block;
   margin-left: auto;
