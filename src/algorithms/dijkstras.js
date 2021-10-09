@@ -7,7 +7,11 @@ const _dijkstras = (tile) => {
 
     while (queue) {
         path = queue.shift()
+        if (!path){
+            alert("Congratulations genius!")
+        }
         tile = path[path.length - 1]
+        // console.log("fadfd",tile)
         searchPath.push(tile)
 
         if (tile.type === "end") {
@@ -30,6 +34,9 @@ const dijkstras = (tile) => {
     let correctPath;
 
     [searchPath, correctPath, foundSolution] = _dijkstras(tile);
+    // if (searchPath.length === 0) {
+    //     alert("Good job dickhead you win")
+    // }
     animateSearch(searchPath, correctPath);
     return searchPath;
 }
