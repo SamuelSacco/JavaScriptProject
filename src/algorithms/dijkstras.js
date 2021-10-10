@@ -8,7 +8,7 @@ const _dijkstras = (tile) => {
     while (queue) {
         path = queue.shift()
         if (!path){
-            alert("Congratulations genius!")
+            alert("YOU WIN!.. (clear something and try again)")
             break;
         }
         tile = path[path.length - 1]

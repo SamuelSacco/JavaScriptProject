@@ -1,17 +1,3 @@
-// export default function animate(array, idx = 0){
-//     if (idx === array.length){
-//         return;
-//     }
-
-//     setTimeout(() => {
-//         const step = array[idx];
-//         const id = `${step[0]}-${step[1]}`;
-//         const div = document.getElementById(id);
-//         div.classList.add("visited");
-
-//         animate(array, ++idx)
-//     }, 10)
-// }
 let timeOut;
 
 function animateCorrectPath(correctPath, idx = 0){
@@ -20,7 +6,7 @@ function animateCorrectPath(correctPath, idx = 0){
         return;
     }
 
-    setTimeout(() => {
+    timeOut = setTimeout(() => {
         const div = correctPath[idx].tileDiv;
         div.classList.add("correct");
 

@@ -164,6 +164,7 @@ export default class Board {
     }
 
     clearPath(){
+        stopAnimation()
         for (let i = 0; i < 23; i++) {
             for (let j = 0; j < 50; j++) {
                 const currentTile = this.grid[i][j]

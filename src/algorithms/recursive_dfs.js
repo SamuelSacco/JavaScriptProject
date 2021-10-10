@@ -37,7 +37,7 @@ const recursiveDFS = (tile) => {
     let correctPath;
     [searchPath, correctPath, foundSolution] = _recursiveDFS(tile);
     if (correctPath.length === 0){
-        alert("you win")
+        alert("YOU WIN!.. (clear something and try again)")
         // return;
     }
     animateSearch(searchPath, correctPath);

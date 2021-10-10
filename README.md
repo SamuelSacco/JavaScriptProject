@@ -20,7 +20,6 @@ Algorithms that I wish to include first are BFS and DFS. If I have time A* and D
 * CSS
 * D3
 
-
 # Implemenation and Timeline
 * logic for algorithms (Day 1)
 * logic for placing start and end nodes (Day 2)
