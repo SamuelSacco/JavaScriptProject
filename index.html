@@ -107,6 +107,7 @@
                 <script>
                     function search(){
                         // console.log(animateSearch)
+                        board.clearPath()
                         const algo = document.getElementById('algorithms').selectedOptions[0].value;
                         const tile = board.tile(document.getElementsByClassName("start")[0].id.split("-").map(el => parseInt(el)));
                         
