@@ -17,7 +17,7 @@ Maze Builder will allow users to create their own unique mazes and watch differe
 # Code Snippets
 * setTimeout allows users to visualize the path the selected algorithm took to find the end tile
 * clearTimeout allows users to stop the visualization
-* 
+
 <img width="1053" alt="Screen Shot 2021-10-10 at 12 35 54 PM" src="https://user-images.githubusercontent.com/76980320/136710877-3f331b1d-cae2-40b5-ab2d-fc05d3f7abf6.png">
 
 # Architecture and Technology
