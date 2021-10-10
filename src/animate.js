@@ -12,6 +12,7 @@
 //         animate(array, ++idx)
 //     }, 10)
 // }
+let timeOut;
 
 function animateCorrectPath(correctPath, idx = 0){
     
@@ -33,10 +34,14 @@ export default function animateSearch(searchtiles, correctPath, idx = 0){
         return;
     }
 
-    setTimeout(() => {
+    timeOut = setTimeout(() => {
         const div = searchtiles[idx].tileDiv;
         div.classList.add("visited");
 
         animateSearch(searchtiles, correctPath, ++idx);
     }, 10)
+}
+
+export function stopAnimation(){
+    clearTimeout(timeOut)
 }

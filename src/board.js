@@ -1,4 +1,5 @@
 import Tile from "./tile";
+import { stopAnimation } from "./animate";
 
 export default class Board {
     constructor() {
@@ -10,11 +11,11 @@ export default class Board {
     }
 
     setTiles() {
-        for (let i = 0; i < 27; i++) {
+        for (let i = 0; i < 23; i++) {
             this.grid.push([]);
             
             for (let j = 0; j < 50; j++) {
-                if (i === 12 && j === 9) {
+                if (i === 11 && j === 9) {
                     
                     let start = new Tile(this, [i, j]);
                     start.tileDiv.classList.add("start")
@@ -23,7 +24,7 @@ export default class Board {
                     this.grid[i].push(start);
                     
                     // console.log("SEARCHED", start.searched, "TYPE", start.type, "CHILDREN", start.children)
-                } else if (i === 12 && j === 40) {
+                } else if (i === 11 && j === 40) {
                     
                     let end = new Tile(this, [i, j], "end");
                     end.tileDiv.classList.add("end")
@@ -33,18 +34,18 @@ export default class Board {
                     // console.log("SEARCHED", end.searched, "TYPE", end.type, "CHILDREN", end.children)
                 }
                 else if (
-                    (i === 9 && j === 8) ||
-                    (i === 9 && j === 9) ||
-                    (i === 9 && j === 10) ||
                     (i === 15 && j === 8) ||
                     (i === 15 && j === 9) ||
                     (i === 15 && j === 10) ||
-                    (i === 9 && j === 39) ||
-                    (i === 9 && j === 40) ||
-                    (i === 9 && j === 41) ||
+                    (i === 7 && j === 8) ||
+                    (i === 7 && j === 9) ||
+                    (i === 7 && j === 10) ||
                     (i === 15 && j === 39) ||
                     (i === 15 && j === 40) ||
-                    (i === 15 && j === 41)
+                    (i === 15 && j === 41) ||
+                    (i === 7 && j === 39) ||
+                    (i === 7 && j === 40) ||
+                    (i === 7 && j === 41)
                 ) {
                     let wall = new Tile(this, [i, j]);
                     wall.tileDiv.classList.add("wall")
@@ -85,12 +86,12 @@ export default class Board {
     validMove(pos) {
         const row = pos[0];
         const col = pos[1];
-        const validRow = row >= 0 && row < 27;
+        const validRow = row >= 0 && row < 23;
         const validCol = col >= 0 && col < 50;
         return validRow && validCol 
         // && this.tile([row, col]).type !== "wall";
         // && !this.tile([row, col]).tileDiv.classList.contains("wall")
-        // console.log(this.tile([12, 9]).tileDiv.classList.contains("wall"))
+        // console.log(this.tile([8, 9]).tileDiv.classList.contains("wall"))
 
     }
 
@@ -105,7 +106,7 @@ export default class Board {
         let down = [1, 0];
         let dirs = [up, right, down, left];
 
-        for (let row = 0; row < 27; row++) {
+        for (let row = 0; row < 23; row++) {
             for (let col = 0; col < 50; col++) {
                 for (let idx in dirs) {
                     let change = dirs[idx];
@@ -123,16 +124,58 @@ export default class Board {
     }
 
     clear() {
-        for (let i = 0; i < 27; i++) {
+        stopAnimation()
+        for (let i = 0; i < 23; i++) {
             for (let j = 0; j < 50; j++) {
                 const currentTile = this.grid[i][j]
-                const cls = ["visited", "correct", "wall"];
+                const classList = ["visited", "correct", "wall", "normal", "start", "end"];
+                currentTile.type = "normal";
                 currentTile.visited = false;
-                currentTile.tileDiv.classList.remove(...cls);
+                currentTile.tileDiv.classList.remove(...classList);
+
+                if (i === 11 && j === 9) {
+
+                    let start = this.tile([i, j])
+
+                    start.tileDiv.classList.add("start")
+                    start.tileDiv.setAttribute("draggable", "true")
+                    start.type = "start"
+
+                    // console.log("SEARCHED", start.searched, "TYPE", start.type, "CHILDREN", start.children)
+                } else if (i === 11 && j === 40) {
+
+                    let end = this.tile([i, j])
+
+                    end.tileDiv.classList.add("end")
+                    end.tileDiv.setAttribute("draggable", "true")
+                    end.type = "end"
+                }
             }
         }
     }
 
+    clearWalls() {
+        for (let i = 0; i < 23; i++) {
+            for (let j = 0; j < 50; j++) {
+                const currentTile = this.grid[i][j]
+                currentTile.tileDiv.classList.remove("wall");
+            }
+        }
+    }
+
+    clearPath(){
+        for (let i = 0; i < 23; i++) {
+            for (let j = 0; j < 50; j++) {
+                const currentTile = this.grid[i][j]
+                const classList = ["visited", "correct"];
+                currentTile.visited = false;
+                currentTile.tileDiv.classList.remove(...classList);
+            }
+        }
+    }
+
+
+    
     // swap(firstPos, secondPos) {
     //     // console.log(firstPos)
     //     // console.log(secondPos)

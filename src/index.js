@@ -3,6 +3,7 @@ import Board from "./board";
 import depthFirstSearch from "./algorithms/dfs"
 import recursiveDFS from "./algorithms/recursive_dfs";
 import dijkstras from "./algorithms/dijkstras";
+// import {stopAnimation} from "./animate";
 
 document.addEventListener("DOMContentLoaded", () => {
     let board = new Board();
@@ -11,9 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
     window.depthFirstSearch = depthFirstSearch;
     window.recursiveDFS = recursiveDFS;
     window.dijkstras = dijkstras;
+    // window.stopAnimation = stopAnimation;
 
     const modal = document.getElementById("modal");
-    const exitButton = document.getElementsByClassName("exit-button");
+    const exitButton = document.getElementsByClassName("x-out");
     exitButton[0].addEventListener("click", closeModal);
 
     const nextButton = document.getElementsByClassName("next-button")[0];

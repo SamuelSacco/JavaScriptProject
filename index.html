@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +23,7 @@
                 <div>
                     <h1 class="demo-title"></h1>
                 </div>
-                <button class="exit-button">&times;</button>
+                <button class="x-out">&times;</button>
             </div>
             <h4 class="demo-desc"></h4>
             <img class="move-demo" src="src/images/move-demo.gif" alt="">
@@ -98,13 +99,14 @@
 
                 <label for="algorithms">SELECT AN ALGORITHM</label>
         
-                <select class="dropdown" name="algorithms" id="algorithms">
+                <select class="dropdown" name="algorithms" id="algorithms" onchange=board.clearPath()>
                     <option value="dijkstras">Breadth-First Search</option>
                     <option value="DFS">Depth-First Search</option>
                 </select>
         
                 <script>
                     function search(){
+                        // console.log(animateSearch)
                         const algo = document.getElementById('algorithms').selectedOptions[0].value;
                         const tile = board.tile(document.getElementsByClassName("start")[0].id.split("-").map(el => parseInt(el)));
                         
@@ -121,9 +123,14 @@
                 </script>
                 </div>
                 <div class="button-wrap">
-                    <button onClick= search()>SEARCH</button>
-                    <button onClick=board.clear()>CLEAR</button>
+                    <button class="search" onClick= search()>SEARCH</button>
+                    <button class="reset" onClick=board.clear()>RESET</button>
                 </div>
+                <div class="button-wrap">
+                    <button class="walls" onClick=board.clearWalls()>Clear Walls</button>
+                    <button class="path" onClick=board.clearPath()>Clear Path</button>
+                </div>
+
             </div>
         </div>
        

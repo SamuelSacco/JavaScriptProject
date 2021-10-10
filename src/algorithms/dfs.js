@@ -9,8 +9,8 @@ const depthFirstSearch = (tile) => {
         // debugger
         if (currentTile.type === "end") {
 
-            console.log("END FOUND!")
-            console.log(currentTile.searched)
+            // console.log("END FOUND!")
+            // console.log(currentTile.searched)
             animate(currentTile.searched)
             return currentTile.searched;
         } 

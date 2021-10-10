@@ -9,6 +9,7 @@ const _dijkstras = (tile) => {
         path = queue.shift()
         if (!path){
             alert("Congratulations genius!")
+            break;
         }
         tile = path[path.length - 1]
         // console.log("fadfd",tile)
