@@ -17,7 +17,7 @@ Maze Builder will allow users to create their own unique mazes and watch differe
 * Change start and end tiles to see the difference
 
 # Code Snippets
-* recursiveDFS
+## recursiveDFS
 The depth-first search algorithm is used to traverse or search data structures such as trees and graphs. I use it to traverse the tiles. Before backtracking, the algorithm starts at the root node and explores as far as feasible down each branch.
 
 ```js
@@ -50,7 +50,7 @@ const _recursiveDFS = (tile) => {
 }
 ```
 
-* animateSearch
+## animateSearch
 Once the recursion completes and the end node is found I utilize CSS classes to show the user the path their algorithm found
 ```js
 export default function animateSearch(searchtiles, correctPath, idx = 0){
@@ -67,7 +67,7 @@ export default function animateSearch(searchtiles, correctPath, idx = 0){
     }, 10)
 }
 ```
-* clearTimeout 
+## clearTimeout 
 allows users to stop the visualization. For example if the user hits clear search or RESET while the animateSearch function is running this code snippet will stop said animation
 ```js
 export function stopAnimation(){
