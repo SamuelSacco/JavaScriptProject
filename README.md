@@ -18,7 +18,7 @@ Maze Builder will allow users to create their own unique mazes and watch differe
 
 # Code Snippets
 ## recursiveDFS
-The depth-first search algorithm is used to traverse or search data structures such as trees and graphs. I use it to traverse the tiles. Before backtracking, the algorithm starts at the root node and explores as far as feasible down each branch.
+The depth-first search algorithm is used to traverse or search data structures such as trees and graphs. I use it to traverse the tiles. Before backtracking, the algorithm starts at the root node and explores as far as possible down each "branch".
 
 ```js
 const _recursiveDFS = (tile) => {
