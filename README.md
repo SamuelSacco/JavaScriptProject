@@ -1,6 +1,8 @@
 # Maze Builder
 https://samuelsacco.github.io/MazeBuilder/
 
+![2021-10-10 17 00 06](https://user-images.githubusercontent.com/76980320/136849446-548881c3-d921-4fe9-a1d4-788f0f2b065a.gif)
+
 Maze Builder will allow users to create their own unique mazes and watch different algorithms solve them. A cathartic and educational experience, the user can re position the start and end nodes to figure out which algorithm is faster. Paint, search, erase repeat. 
 
 <!-- # Wireframe
