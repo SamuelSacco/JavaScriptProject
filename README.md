@@ -17,10 +17,39 @@ Maze Builder will allow users to create their own unique mazes and watch differe
 * Change start and end tiles to see the difference
 
 # Code Snippets
+* recursiveDFS
+```js
+const _recursiveDFS = (tile) => {
+
+    if (tile.type == "end") {
+
+        return [[tile], [tile], true]; // at the end so just return path to self
+    }
+    tile.visited = true // set that we've searched here already
+    
+    let searchPath = [tile]
+    let foundSolution;
+    let childSearchPath;
+    let correctPath;
+    
+    for (let neighbor of tile.neighbors) {
+        if (neighbor.visited || neighbor.tileDiv.classList.contains("wall")) continue;
+        [childSearchPath, correctPath, foundSolution] = _recursiveDFS(neighbor) // get path from child
+        searchPath = searchPath.concat(childSearchPath)
+        if (foundSolution) {
+
+            correctPath.unshift(tile);
+            return [searchPath, correctPath, true] // we've found path so just return
+        }
+        searchPath.push(tile) // add the tile when we're back here and keep searching
+    }
+
+    return [searchPath, [], false]; // return the entire paths
+}
+```
+
 * setTimeout allows users to visualize the path the selected algorithm took to find the end tile
 * clearTimeout allows users to stop the visualization
-
-<img width="1053" alt="Screen Shot 2021-10-10 at 12 35 54 PM" src="https://user-images.githubusercontent.com/76980320/136710877-3f331b1d-cae2-40b5-ab2d-fc05d3f7abf6.png">
 
 # Architecture and Technology
 * JavaScript
