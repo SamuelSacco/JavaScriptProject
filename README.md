@@ -83,6 +83,6 @@ export function stopAnimation(){
 # Implemenation and Timeline
 * logic for algorithms (Day 1)
 * logic for placing start and end nodes (Day 2)
-* D3 for visualiztion (Day 3)
-* D3 for visualiztion (Day 4)
-* Clean up bugs (Day 5)
+* logic for CSS and for visualiztion (Day 3)
+* logic for CSS for visualiztion (Day 4)
+* logic for "painting" walls (Day 5)
