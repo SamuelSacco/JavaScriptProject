@@ -2,9 +2,9 @@ import animateSearch from "../animate";
 import animate2 from "../animate";
 
 const _recursiveDFS = (tile) => {
-    // console.log(tile.pos)
+
     if (tile.type == "end") {
-        // debugger
+
         return [[tile], [tile], true]; // at the end so just return path to self
     }
     tile.visited = true // set that we've searched here already
@@ -15,19 +15,17 @@ const _recursiveDFS = (tile) => {
     let correctPath;
     
     for (let neighbor of tile.neighbors) {
-        // console.log(neighbor.tileDiv.classList.contains("wall"))
-        // console.log(neighbor)
         if (neighbor.visited || neighbor.tileDiv.classList.contains("wall")) continue;
         [childSearchPath, correctPath, foundSolution] = _recursiveDFS(neighbor) // get path from child
         searchPath = searchPath.concat(childSearchPath)
         if (foundSolution) {
-            // debugger
+
             correctPath.unshift(tile);
             return [searchPath, correctPath, true] // we've found path so just return
         }
         searchPath.push(tile) // add the tile when we're back here and keep searching
     }
-    // debugger
+
     return [searchPath, [], false]; // return the entire paths
 }
 

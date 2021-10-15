@@ -5,12 +5,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  min-width: 1300px;
 }
 
 .main-body  {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 1300px;
+
   // background-color: #43aa8b;
   // 98a190
   background-color: #277da1;
@@ -41,6 +44,7 @@
       object-fit: contain;
       width: 60px;
       margin-top: 20px;
+
     }
     i{
       margin-top: 8px;
@@ -62,6 +66,7 @@
 
 .logo{
   background-image: url("src/images/favicon.png");
+  
 }
 
 #grid {
@@ -155,10 +160,10 @@
         color: white;
 
         &:hover{
+          transition: opacity 0.5s;
           opacity: 100%;
         }
       }
-
       .search{
         background-color: green;
       }
