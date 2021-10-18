@@ -12,7 +12,7 @@ const depthFirstSearch = (tile) => {
             // console.log("END FOUND!")
             // console.log(currentTile.searched)
             animate(currentTile.searched)
-            return currentTile.searched;
+            return currentTile.searched; //ceh
         } 
 
         for (let tile of currentTile.neighbors){
